@@ -1,0 +1,29 @@
+//
+// String Table
+//
+STRINGTABLE
+{
+	1 "STEAM INIT%0%SteamPlugin_Init"
+	2 "STEAM SHUTDOWN%0%SteamPlugin_Shutdown"
+	3 "STEAM UPDATE%0%SteamPlugin_Update"
+	4 "STEAM CALL METHOD[%OSXX%SteamPlugin_CallMethod%MethodName, Arg1, Arg2"
+	5 "STEAM GET PROPERTY[%LS%SteamPlugin_GetProperty%PropertyName"
+	6 "STEAM SET PROPERTY[%DSO%SteamPlugin_SetProperty%PopertyName, Value"
+	7 "STEAM GET ACHIEVEMENT ID[%SL%DBPPlugin_GetAchievementId%Index"
+}
+
+// Extra information about the string tables, for quick lookup.
+/*
+L = Integer                         ( IN use "int" )         ( OUT use "int" )
+F = Float                           ( IN use "float" )       ( OUT use "DWORD" )
+S = String                          ( IN use "LPSTR" )       ( OUT use "DWORD" )
+O = Double Float (capital o)        ( IN use "double" )      ( OUT use "double" )
+R = Double Integer (capital r)      ( IN use "LONGLONG" )    ( OUT use "LONGLONG" )
+D = Boolean, BYTE, WORD and DWORD   ( IN use "DWORD" )       ( OUT use "DWORD" )
+D = Boolean                         ( IN use "BOOL" )        ( OUT use "BOOL" )
+0 = Zero Character (no param)       ( IN use "VOID" )        ( n/a )
+H = Array                           ( IN use ? )             ( OUT use ? )
+X = Any type                        ( IN use "const void*" ) ( OUT use "const void*" )
+A = Special List Processing         ( IN use ? )             ( OUT use ? )
+* = Designate a return type
+*/

@@ -1,0 +1,9 @@
+In order to compile, make sure that the "public" and "redistributable_bin" folders from the Steam SDK have been placed in the "SteamPlugin" folder.
+
+For the included example projects, place the following files (after compiling) in these folders:
+
+SteamPlugin/redistributable_bin/steam_api.dll -> Files/Love2D/steam_api.dll
+Release/SteamPlugin.dll -> Files/Love2D/SteamPlugin.dll
+
+SteamPlugin/redistributable_bin/steam_api.dll -> Files/DBP/Projects/SteamPlugin Example/steam_api.dll
+Release-DBP/SteamPlugin.dll -> Files/DBP/Compiler/plugins-user/SteamPlugin.dll

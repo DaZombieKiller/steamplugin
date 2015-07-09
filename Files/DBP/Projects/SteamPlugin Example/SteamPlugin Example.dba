@@ -1,0 +1,53 @@
+// SteamPlugin Example
+sync off : sync rate 0
+disable escapekey
+
+// Init Steam
+steam init
+
+// Wait for everything to initialize
+while (steam get property("SteamAvailable") = 0 or steam get property("StatsAvailable") = 0)
+	steam update
+endwhile
+
+// Print achievement IDs
+achievementCount as Integer : achievementCount = steam get property("NumAchievements")
+for i = 0 to achievementCount
+	print steam get achievement id(i)
+next i
+
+// When using "steam call method", you must pass all arguments, even if you're not using the last one.
+// Simply pass 0 as the argument if you're not using it. For example:
+//
+// temp = steam call method("RequestStats", 0, 0)
+//
+// In the above example, "RequestStats" doesn't have any arguments, so just use 0 for both.
+
+// Reset stats and achievements
+temp = steam call method("ResetAllStats", 1, 0)
+
+// Unlock an achievement
+temp = steam call method("SetAchievement", "ACH_WIN_ONE_GAME", 0)
+
+wait key
+
+// Shut down the Steam API
+steam shutdown
+
+// Miscellaneous information
+// These are the calls for "steam call method"
+// "RequestStats", 0, 0
+// "IsAchieved", AchievementID$, 0
+// "ClearAchievement", AchievementID$, 0
+// "SetStat", StatID$, Value
+// "GetStat", StatID$, 0
+// "GetStatInt", StatID$, 0
+// "GetStatFloat", StatID$, 0
+// "ResetAllStats", 0, 0
+//
+// These are the properties for "steam get property"
+// "SteamAvailable"
+// "StatsAvailable"
+// "NumAchievements"
+// "AppId"
+// "LoggedOn"
