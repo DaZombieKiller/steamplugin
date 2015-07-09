@@ -22,6 +22,7 @@ THE SOFTWARE.
 
 #include "steamplugin.h"
 #include <stdio.h>
+#include <iostream>
 #include <windows.h>
 #include <steam_api.h>
 
@@ -151,13 +152,13 @@ void SteamPlugin::OnUserStatsStored(UserStatsStored_t *pCallback)
 	// We may get callbacks for other games' stats arriving, ignore them
 	if (pCallback->m_nGameID == m_AppId)
 	{
-		if (pCallback->m_eResult == k_EResultOK){}
-			//print("Stored stats for Steam\n");
+		if (pCallback->m_eResult == k_EResultOK)
+			std::cout << "Stored stats for Steam\n";
 		else
 		{
 			char buffer[128];
 			_snprintf(buffer, 128, "StatsStored - failed, %d\n", pCallback->m_eResult);
-			//print(buffer);
+			std::cout << buffer;
 		}
 	}
 }
@@ -165,8 +166,8 @@ void SteamPlugin::OnUserStatsStored(UserStatsStored_t *pCallback)
 void SteamPlugin::OnAchievementStored(UserAchievementStored_t *pCallback)
 {
 	// We may get callbacks for other games' stats arriving, ignore them
-	if (pCallback->m_nGameID == m_AppId){}
-		//print("Stored achievement for Steam\n");
+	if (pCallback->m_nGameID == m_AppId)
+		std::cout << "Stored achievement for Steam\n";
 }
 
 bool SteamPlugin::RequestStats()
